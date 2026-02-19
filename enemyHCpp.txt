@@ -1,0 +1,112 @@
+26. 01.06 enermy hpp cpp backup 
+-- 에너미 랜덤으로 나오기 하는 것에서 스프라이트 방식으로 변경. 
+
+
+#pragma once 
+#include <iostream>
+#include "Header.hpp"
+#include <SFML\Graphics.hpp>
+#include "CommonComponent.hpp" 
+#include "Player.hpp"
+
+class Enemy {
+private:
+	sf::RectangleShape shape; 
+	sf::Vector2f pos; 
+	float velocity = ENEMY_SPEED; 
+	Player* playerPtr=nullptr; //player의 위치를 얻어오기. 
+	EnemyApperance enemyApperance; // 기본정보.  
+	int health = 3; // 기본체력. 
+
+public: 
+	Enemy(); 
+	Enemy(EnemyApperance& eApp, Player* player); 
+	~Enemy(); 
+	void draw(sf::RenderWindow& window);
+	void update(float dt); 
+	void setEnemy(EnemyApperance& eApp); 
+	void setPosition(sf::Vector2f pos); 
+	sf::Vector2f getPosition(); 
+	const sf::RectangleShape&  getShape() const; 
+	float getVelocity(); 
+};
+
+
+
+#include "Enemy.hpp"
+
+Enemy::Enemy() {}
+
+Enemy::Enemy(EnemyApperance& eApp, Player* player)
+{
+	enemyApperance = eApp; 
+	velocity = eApp.eVelocity; 
+	shape.setSize(eApp.eSize);
+	shape.setFillColor(eApp.color);
+	shape.setPosition( eApp.ePosition.x , eApp.ePosition.y);
+
+	playerPtr = player; 
+
+}
+
+void Enemy::setEnemy(EnemyApperance& eApp)
+{
+	
+}
+
+
+Enemy::~Enemy()
+{
+}
+
+void Enemy::draw(sf::RenderWindow& window)
+{
+	window.draw(shape); 
+}
+
+
+void Enemy::update(float dt)
+{
+	sf::Vector2f playerPos = playerPtr->getSpritePosition(); 
+	sf::Vector2f enemyPos = shape.getPosition(); 
+
+	float playerToEnemyX = playerPos.x - enemyPos.x; 
+	float playerToEnemyY = playerPos.y - enemyPos.y; 
+
+	float length = sqrtf(playerToEnemyX * playerToEnemyX + playerToEnemyY * playerToEnemyY); 
+
+	if (length > 0.1f) {
+		playerToEnemyX /= length; 
+		playerToEnemyY /= length; 
+
+		sf::Vector2f movement; 
+		movement.x = playerToEnemyX * getVelocity() * dt; 
+		movement.y = playerToEnemyY * getVelocity() * dt; 
+		
+		//sf::Vector2f nextPos; 
+		//nextPos += movement;
+		//shape.setPosition(nextPos); 
+		shape.move(movement); 
+	}
+}
+
+
+void Enemy::setPosition(sf::Vector2f pos)
+{
+	shape.setPosition(pos); 
+}
+
+sf::Vector2f Enemy::getPosition()
+{
+	return shape.getPosition(); 
+}
+
+const sf::RectangleShape& Enemy::getShape() const
+{
+	return shape;
+}
+
+float Enemy::getVelocity()
+{
+	return velocity; 
+}

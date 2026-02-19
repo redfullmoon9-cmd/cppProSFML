@@ -1,0 +1,80 @@
+#include "DrawTest2.hpp"
+
+DrawTest2::DrawTest2()
+{
+
+	/*sf::Vector2f size(20.f, 20.f); 
+
+	for (int i = 0; i < 10; i++) {
+		enermies[i].setSize(size);
+		enermies[i].setFillColor(sf::Color::Red); 
+		enermies[i].setPosition( 800 + (rand() %200), i * 50);
+	}*/
+}
+
+DrawTest2::~DrawTest2() {
+
+}
+
+//26. 2.1 키보드 관련 이벤트 이곳에 직접 처리. 
+// player class 분리했을때 이벤트 핸들러까지 가야하나? 
+void DrawTest2::update(float dt) {
+	sf::Vector2f pos = rect.getPosition(); 
+	sf::Vector2f direction(0.0f, 0.0f); 
+
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) direction.y -=1.f;  
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) direction.y +=1.f;  
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) direction.x -=1.f;  
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) direction.x +=1.f; 
+
+	sf::Vector2f movement = direction * playerSpeed * dt; 
+	sf::Vector2f nextPos = pos + movement; 
+
+	if (nextPos.x < 0) nextPos.x = 0; 
+	if (nextPos.x > 1024 - rect.getSize().x) nextPos.x = 1024 - rect.getSize().x; 
+	if (nextPos.y < 0) nextPos.y = 0; 
+	if (nextPos.y > 768 - rect.getSize().y) nextPos.y = 768 - rect.getSize().y; 
+
+	rect.setPosition(nextPos); 
+
+	moveEnermies(dt); 
+
+}
+
+void DrawTest2::render(sf::RenderWindow& r_window)
+{
+	r_window.draw(rect); 
+	for (int i = 0; i < 10; i++) {
+		//std::cout << "test enermies " << std::endl; 
+		r_window.draw(enermies[i]); 
+	}
+}
+//player에게 다가 가는 로직. setPosition대신에 move 사용. 
+void DrawTest2::moveEnermies(float dt)
+{
+	sf::Vector2f playerPos = rect.getPosition();
+	for (int i = 0; i < 10; i++) {
+		sf::Vector2f enerPos = enermies[i].getPosition();
+		//sf::Vector2f playerToEnermy;
+
+		float disX = playerPos.x - enerPos.x;
+		float disY = playerPos.y - enerPos.y;
+
+		float length = sqrtf((disX * disX) + (disY * disY));
+		if (length > 0) {
+			disX /= length;
+			disY /= length;
+			sf::Vector2f movement; 
+			movement.x = disX * enemySpeed * dt;
+			movement.y = disY * enemySpeed * dt;
+
+			//누적값을 더하는 연산으로 setPosition수행, move로 직접 이동시키는 연산은 같음.  
+			enerPos+= movement; 
+			enermies[i].setPosition(enerPos);
+
+			//enermies[i].move(movement); 
+		}
+	}
+}
+
+

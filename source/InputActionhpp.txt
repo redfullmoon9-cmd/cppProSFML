@@ -1,0 +1,89 @@
+// InputAction.hpp
+
+glfw라이브러리를 기준으로 작성되어 있어서 변경.. 
+
+#pragma once
+#include <string>
+#include <vector>
+#include <map>
+#include <functional>
+#include <GLFW/glfw3.h>
+
+
+/*26. 01.06 claud make code (Keyboard with map */
+enum class InputType {
+    KeyPressed,
+    KeyReleased,
+    KeyHeld
+};
+
+struct InputBinding {
+    int key;
+    InputType type;
+};
+
+class InputManager {
+private:
+    // 액션 이름 -> 키 바인딩들
+    std::map<std::string, std::vector<InputBinding>> actionBindings;
+
+    // 현재/이전 프레임 키 상태
+    std::map<int, bool> currentKeyStates;
+    std::map<int, bool> previousKeyStates;
+
+    GLFWwindow* window;
+
+public:
+    InputManager(GLFWwindow* win) : window(win) {}
+
+    // 액션에 키 바인딩 추가
+    void BindAction(const std::string& actionName, int key, InputType type = InputType::KeyHeld) {
+        actionBindings[actionName].push_back({ key, type });
+    }
+
+    // 매 프레임 시작 시 호출
+    void Update() {
+        previousKeyStates = currentKeyStates;
+    }
+
+    // 액션이 활성화되었는지 확인
+    bool IsActionActive(const std::string& actionName) {
+        if (actionBindings.find(actionName) == actionBindings.end())
+            return false;
+
+        for (const auto& binding : actionBindings[actionName]) {
+            bool isPressed = glfwGetKey(window, binding.key) == GLFW_PRESS;
+            bool wasPressed = previousKeyStates[binding.key];
+
+            currentKeyStates[binding.key] = isPressed;
+
+            switch (binding.type) {
+            case InputType::KeyHeld:
+                if (isPressed) return true;
+                break;
+            case InputType::KeyPressed:
+                if (isPressed && !wasPressed) return true;
+                break;
+            case InputType::KeyReleased:
+                if (!isPressed && wasPressed) return true;
+                break;
+            }
+        }
+        return false;
+    }
+
+    // 축(Axis) 값 가져오기 (-1.0 ~ 1.0)
+    float GetAxisValue(const std::string& axisName) {
+        float value = 0.0f;
+
+        // Positive 방향 체크
+        if (IsActionActive(axisName + "_Positive"))
+            value += 1.0f;
+
+        // Negative 방향 체크
+        if (IsActionActive(axisName + "_Negative"))
+            value -= 1.0f;
+
+        return value;
+    }
+};

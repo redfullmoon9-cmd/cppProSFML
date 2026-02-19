@@ -1,0 +1,62 @@
+[
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/main.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/main.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/main.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/Bullet.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/Bullet.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/Bullet.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/Bullet.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/DrawTest.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/DrawTest.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/DrawTest2.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest2.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest2.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/DrawTest2.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/DrawTest3.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest3.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest3.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/DrawTest3.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/DrawTest4.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest4.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/DrawTest4.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/DrawTest4.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/Enemy.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/Enemy.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/Enemy.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/Enemy.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/Game2D.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/Game2D.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/Game2D.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/Game2D.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/InputManager.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/InputManager.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/InputManager.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/InputManager.cpp.o"
+},
+{
+  "directory": "/home/hotphotatos/cNcppGameDev/CppProSFML/build",
+  "command": "/usr/bin/g++  -I/home/hotphotatos/cNcppGameDev/CppProSFML/include -g -o CMakeFiles/CppProSFML.dir/source/Player.cpp.o -c /home/hotphotatos/cNcppGameDev/CppProSFML/source/Player.cpp",
+  "file": "/home/hotphotatos/cNcppGameDev/CppProSFML/source/Player.cpp",
+  "output": "CMakeFiles/CppProSFML.dir/source/Player.cpp.o"
+}
+]
