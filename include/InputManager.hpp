@@ -16,7 +16,7 @@ struct InputBinding {
 	InputType type; 
 };
 
-
+//test 
 class InputManager {
 private:
 	std::map<std::string, std::vector<InputBinding>> actionBindings;
