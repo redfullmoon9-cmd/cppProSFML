@@ -6,7 +6,7 @@
 #include "CommonComponent.hpp"
 #include "Player.hpp"
 
-class Enemy
+class Enemy//test
 {
 private:
 	sf::Vector2f pos;

@@ -1,6 +1,7 @@
 #pragma once 
 #include <SFML/Graphics.hpp>
 
+//3로 나누어진것 하나로 합쳐야. 
 struct PlayerApperance {
 	sf::Vector2f pSize{ 0.0f, 0.0f };
 	sf::Vector2f pPosition{ 0.f, 0.f }; 

@@ -13,3 +13,5 @@ constexpr auto ENEMY_SPEED = 50.0f;
 // 절대 경로에서 상대 경로로 변경.
 constexpr auto FIGHT_IMG = "resources/graphics/fighter.png";
 constexpr auto ALIEN1_IMG = "resources/graphics/alien_1.png";
+
+constexpr auto TEXTCNT =100; 

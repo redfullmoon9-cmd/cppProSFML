@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include "InputManager.hpp" //imputManager
 
-class Game2D
+class Game2D//test 
 {
 private:
 	int width = 0;
