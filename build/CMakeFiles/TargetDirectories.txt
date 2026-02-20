@@ -1,0 +1,3 @@
+/home/hotphotatos/cNcppGameDev/CppProSFML/build/CMakeFiles/CppProSFML.dir
+/home/hotphotatos/cNcppGameDev/CppProSFML/build/CMakeFiles/edit_cache.dir
+/home/hotphotatos/cNcppGameDev/CppProSFML/build/CMakeFiles/rebuild_cache.dir
